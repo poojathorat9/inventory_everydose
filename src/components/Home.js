@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   TableContainer,
@@ -15,30 +15,22 @@ import {
 import Data from "./data";
 
 const useStyles = makeStyles((theme) => ({
- 
   button: {
-    backgroundColor: '#0078C8',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#083f6a',
-      color: 'white',
+    backgroundColor: "#0078C8",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#083f6a",
+      color: "white",
+    },
+    border: "none",
+    borderRadius: "5px",
+    width: "8%",
+    height: "20%",
   },
-  border:'none',
-  borderRadius:'5px',
-  width:'8%',
-  height:'20%',
-
-}
-
 }));
 
 const Home = (props) => {
   const classes = useStyles();
-
-  useEffect(() => {
-  console.log("data",Data)
-  }, [Data])
-  
 
   return (
     <div>
@@ -49,7 +41,7 @@ const Home = (props) => {
         <Grid item xs={3}>
           {" "}
         </Grid>
-       
+
         <Grid item xs={6}>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 600 }} aria-label="customized table">
@@ -74,7 +66,7 @@ const Home = (props) => {
             </Table>
           </TableContainer>
         </Grid>
-      
+
         <Grid item xs={3}>
           {" "}
         </Grid>
@@ -83,11 +75,7 @@ const Home = (props) => {
       <br />
 
       <Link to="lists">
-        <button
-          className={classes.button}
-        >
-          Edit List
-        </button>
+        <button className={classes.button}>Edit List</button>
       </Link>
     </div>
   );

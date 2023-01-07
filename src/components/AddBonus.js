@@ -12,30 +12,26 @@ import {
   TableHead,
   Typography,
   CloseIcon,
-  makeStyles
+  makeStyles,
 } from "../utils/imports/Material_UI_ImportUtility";
 import Data from "./data";
 
 const useStyles = makeStyles((theme) => ({
- 
   button: {
-    backgroundColor: '#0078C8',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#083f6a',
-      color: 'white',
+    backgroundColor: "#0078C8",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#083f6a",
+      color: "white",
+    },
+    border: "none",
+    borderRadius: "5px",
+    width: "12%",
+    height: "12%",
   },
-  border:'none',
-  borderRadius:'5px',
-  width:'12%',
-  height:'12%',
-
-}
-
 }));
 
 const AddBonus = (props) => {
-
   const classes = useStyles();
 
   const [item, setItem] = useState("");
@@ -75,13 +71,11 @@ const AddBonus = (props) => {
     }
   };
 
-  const handleItemDetailsQty =(e)=>{
-    console.log("id value",e.target.value)
-     if(e.target.id === "qty2"){
+  const handleItemDetailsQty = (e) => {
+    if (e.target.id === "qty2") {
       setQty(e.target.value);
     }
-
-  }
+  };
 
   return (
     <div>
@@ -110,14 +104,13 @@ const AddBonus = (props) => {
             variant="outlined"
           />
           <button
-          className={classes.button}
+            className={classes.button}
             onClick={(e) => {
               handleAddItem(e);
             }}
           >
             Add
           </button>
-
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 200 }} aria-label="customized table">
               <TableHead>
@@ -137,22 +130,24 @@ const AddBonus = (props) => {
                       {row.item_name}
                     </TableCell>
                     <TableCell component="th" scope="row">
-                    <Grid className="d-flex" item form="maincomponent" xs>
-                      <p>Quantity : &nbsp;</p>{" "}
-                      <input
-                      style={{width:"50px",height:"-20px",}}
-                        type="number"
-                        InputProps={{
-                          inputProps: {
-                            max: 100,
-                            min: 1,
-                          },
-                        }}
-                        value={row.qty}
-                        id="qty2"
-                        onChange={(e)=>{handleItemDetailsQty(e)}}
-                      />
-                       </Grid>
+                      <Grid className="d-flex" item form="maincomponent" xs>
+                        <p>Quantity : &nbsp;</p>{" "}
+                        <input
+                          style={{ width: "50px", height: "-20px" }}
+                          type="number"
+                          InputProps={{
+                            inputProps: {
+                              max: 100,
+                              min: 1,
+                            },
+                          }}
+                          value={row.qty}
+                          id="qty2"
+                          onChange={(e) => {
+                            handleItemDetailsQty(e);
+                          }}
+                        />
+                      </Grid>
                     </TableCell>
                     <TableCell align="right">
                       <CloseIcon
@@ -167,11 +162,11 @@ const AddBonus = (props) => {
               </TableBody>
             </Table>
 
-            <Grid style={{display:"flex",justifyContent: "flex-end"}} >
+            <Grid style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button
                 variant="outlined"
                 style={{
-                  marginRight:'2%',
+                  marginRight: "2%",
                   color: "#747474",
                   borderRadius: "5px",
                   marginBottom: "12px",
@@ -181,7 +176,7 @@ const AddBonus = (props) => {
               >
                 Clear All
               </Button>
-              </Grid>
+            </Grid>
           </TableContainer>
         </Grid>
 

@@ -50,8 +50,6 @@ const Lists = (props) => {
         qty: "0",
       },
     ]);
-  
-    console.log(data);
   };
 
   const handleItemName = (e) => {
@@ -61,16 +59,14 @@ const Lists = (props) => {
   };
 
   const removeItem = (sr) => {
-    console.log(sr);
     let before = data;
     let after = before.filter((item) => item.sr_no != sr);
     setData(after);
-  
   };
 
   const handleClearAll = () => {
     setData([]);
-    };
+  };
 
   return (
     <div>
@@ -79,89 +75,94 @@ const Lists = (props) => {
           <h2>Edit List</h2>
         </Grid>
         <Grid item xs={3}></Grid>
-        
+
         <Grid item xs={6}>
-        <div style={{backgroundColor: "white",padding:'5px'}}>
-        
-          <div className="mb-3">
-          
-            <div className="input-group input-group-lg">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Item Name *"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-                onChange={(e) => {
-                  handleItemName(e);
-                }}
-                id="item"
-              />{" "}
-              <button
-                className="btn btn-primary"
-                type="button"
-                id="button-addon2"
-                onClick={handleAddItem}
-              >
-                Add
-              </button>
+          <div style={{ backgroundColor: "white", padding: "5px" }}>
+            <div className="mb-3">
+              <div className="input-group input-group-lg">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Item Name *"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                  onChange={(e) => {
+                    handleItemName(e);
+                  }}
+                  id="item"
+                />{" "}
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  id="button-addon2"
+                  onClick={handleAddItem}
+                >
+                  Add
+                </button>
+              </div>
+              <div className="form-text text-start">
+                To get stated, add 1 or more items
+              </div>
             </div>
-            <div className="form-text text-start">
-              To get stated, add 1 or more items
-            </div>
-          </div>
 
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 200 }} aria-label="customized table">
-            <Typography style={{backgroundColor:'#f2f2f2',width:'150%',textAlign:'left',padding:'5px'}}>Inventory List</Typography>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 200 }} aria-label="customized table">
+                <Typography
+                  style={{
+                    backgroundColor: "#f2f2f2",
+                    width: "150%",
+                    textAlign: "left",
+                    padding: "5px",
+                  }}
+                >
+                  Inventory List
+                </Typography>
 
-              <TableHead>
-
-                {/* <TableRow>
+                <TableHead>
+                  {/* <TableRow>
                   <TableCell>
                     {" "}
                   </TableCell>
                   <TableCell></TableCell>
                 </TableRow> */}
-              </TableHead>
-              <TableBody>
-                {data && (
-                  <>
-                    {data.map((row) => (
-                      <TableRow key={row.sr_no}>
-                        <TableCell>{row.item_name}</TableCell>
-                        <TableCell align="right">
-                          <CloseIcon
-                            style={{ color: "#d73838", cursor: "pointer" }}
-                            onClick={(e) => {
-                              removeItem(row.sr_no);
-                            }}
-                          />
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </>
-                )}
-              </TableBody>
-            </Table>
+                </TableHead>
+                <TableBody>
+                  {data && (
+                    <>
+                      {data.map((row) => (
+                        <TableRow key={row.sr_no}>
+                          <TableCell>{row.item_name}</TableCell>
+                          <TableCell align="right">
+                            <CloseIcon
+                              style={{ color: "#d73838", cursor: "pointer" }}
+                              onClick={(e) => {
+                                removeItem(row.sr_no);
+                              }}
+                            />
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </>
+                  )}
+                </TableBody>
+              </Table>
 
-            <Grid style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button
-                variant="outlined"
-                style={{
-                  marginRight: "2%",
-                  color: "#747474",
-                  borderRadius: "5px",
-                  marginBottom: "12px",
-                  marginTop: "12px",
-                }}
-                onClick={handleClearAll}
-              >
-                Clear All
-              </Button>
-            </Grid>
-          </TableContainer>
-
+              <Grid style={{ display: "flex", justifyContent: "flex-end" }}>
+                <Button
+                  variant="outlined"
+                  style={{
+                    marginRight: "2%",
+                    color: "#747474",
+                    borderRadius: "5px",
+                    marginBottom: "12px",
+                    marginTop: "12px",
+                  }}
+                  onClick={handleClearAll}
+                >
+                  Clear All
+                </Button>
+              </Grid>
+            </TableContainer>
           </div>
         </Grid>
 
