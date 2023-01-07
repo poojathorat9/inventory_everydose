@@ -1,5 +1,5 @@
 import "./App.css";
-import { Lists, MyNav, Home } from "./components";
+import { Lists, MyNav, Home,AddBonus } from "./components";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Home />} />
           <Route path="/lists" element={<Lists />} />
+          <Route path="/addBonus" element={<AddBonus />} />
         </Routes>
       </div>
     </div>

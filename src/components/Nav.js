@@ -34,6 +34,11 @@ const MyNav = (props) => {
                 Edit List
               </Link>
             </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="/addBonus">
+                Add Bonus Qty
+              </Link>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
